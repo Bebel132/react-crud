@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Bebel132/react-crud.git/static/css/main.4aa2e413.css",
+    "main.js": "/Bebel132/react-crud.git/static/js/main.bfb09370.js",
+    "static/js/453.709df714.chunk.js": "/Bebel132/react-crud.git/static/js/453.709df714.chunk.js",
+    "index.html": "/Bebel132/react-crud.git/index.html",
+    "main.4aa2e413.css.map": "/Bebel132/react-crud.git/static/css/main.4aa2e413.css.map",
+    "main.bfb09370.js.map": "/Bebel132/react-crud.git/static/js/main.bfb09370.js.map",
+    "453.709df714.chunk.js.map": "/Bebel132/react-crud.git/static/js/453.709df714.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4aa2e413.css",
+    "static/js/main.bfb09370.js"
+  ]
+}
