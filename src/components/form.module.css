@@ -1,0 +1,16 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0;
+}
+
+.inputText {
+    padding: .5rem .2rem;
+    margin-bottom: .5rem;
+}
+
+.submit {
+    width: 5rem;
+    padding: .5rem 0;
+    margin: 0 auto;
+}
