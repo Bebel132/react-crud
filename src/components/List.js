@@ -1,6 +1,7 @@
 import styles from './list.module.css'
 
 function List({list, deleteFromList, editFromList}) {
+    console.log(list)
     return (
         <table>
             <thead>
