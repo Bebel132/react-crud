@@ -1,7 +1,6 @@
 import styles from './list.module.css'
 
 function List({list, deleteFromList, editFromList}) {
-    console.log(list)
     return (
         <table>
             <thead>
@@ -17,7 +16,7 @@ function List({list, deleteFromList, editFromList}) {
                         <td>{item.text}</td>
                         <td>
                             <div className="buttons">
-                                <button className={styles.edit} onClick={() => editFromList(item.id)}>edit</button>
+                                <button className={styles.edit} onClick={() => editFromList(item.id, item.text)}>edit</button>
                                 <button className={styles.del} onClick={() => deleteFromList(item.id)}>delete</button>
                             </div>
                         </td>

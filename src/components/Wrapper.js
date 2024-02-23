@@ -14,48 +14,55 @@ function Wrapper() {
 
     let lastId = list[list.length-1]
 
-    function updateJSON(arr) {
-        fetch(`http://localhost:3001/list`, {
-          method: "PUT",
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(arr)
-        })
-        .then(response => response.json())
-        .then(data => setList(data));
-      }
-
     function updateList(event, newItem){
         event.preventDefault()
-        const id = parseInt(lastId.id)+1
+        let id = parseInt(lastId.id)+1
+        id = String(id)
         const text = newItem
 
         const newList = [...list, {id, text}]
 
-        setList(newList)
-        updateJSON(newList)
+        fetch('http://localhost:3001/list', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({id, text})
+        })
+        .then(response => response.json)
+        .then(setList(newList))
     }
 
     function deleteFromList(id){
         let newArr = list.filter(todo => todo.id != id)
-        setList(newArr)
-        updateJSON(newArr)
+
+        fetch(`http://localhost:3001/list/${id}`, {
+            method: 'DELETE'
+        })
+        .then(setList(newArr))
     }
 
-    function editFromList(id){
-        let alteracao = prompt()
+    function editFromList(id, placeholder){
+        let text = prompt("", placeholder)
 
-        let newArr =    (obj => {
+        let newArr = list.map(obj => {
             if(obj.id == id){
-                return {id: id, text: alteracao}
+                return {id: id, text: text}
             } else {
                 return obj
             }
         })
-
-        setList(newArr)
-        updateJSON(newArr)
+        
+        fetch(`http://localhost:3001/list/${id}`, {
+          method: "PUT",
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({id, text})
+        })
+        .then(response => response.json()
+        .then(setList(newArr))
+        )
     }
 
     return (
