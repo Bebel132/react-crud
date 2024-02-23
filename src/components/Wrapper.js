@@ -12,12 +12,19 @@ function Wrapper() {
             .then(data => setList(data));
     }, []);
 
-    let lastId = list[list.length-1]
 
     function updateList(event, newItem){
         event.preventDefault()
-        let id = parseInt(lastId.id)+1
-        id = String(id)
+
+        let lastId = 0
+
+        if(list.length > 0) {
+            lastId = parseInt(list[list.length-1].id)
+
+        }
+
+        lastId++
+        const id = String(lastId)
         const text = newItem
 
         const newList = [...list, {id, text}]
